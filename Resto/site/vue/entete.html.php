@@ -16,13 +16,19 @@
 
         <ul id="menuGeneral">
             <li><a href="./?action=accueil">Accueil</a></li> 
-            <li><a href="./?action=liste">Liste</a></li> 
-            <li></li>
-            <li id="logo"><a href="./?action=accueil"><img src="images/logoBarre.png" alt="logo" /></a></li>
+            <li><a href="./?action=recherche"><img src="images/rechercher.png" alt="loupe" />Recherche</a></li>
             <li></li> 
-            <li><a href="./?action=cgu">CGU</a></li>
+
+            <li id="logo"><a href="./?action=accueil"><img src="images/logoBarre.png" alt="logo" /></a></li>
+
+            <li></li>
+            <li><a href="./?action=deconnexion"><img src="images/profil.png" alt="loupe" />deconnexion</a></li>
+
 
             <li><a href="./?action=connexion"><img src="images/profil.png" alt="loupe" />Connexion</a></li>
+
+
+
         </ul>
     </nav>
     <div id="bouton">

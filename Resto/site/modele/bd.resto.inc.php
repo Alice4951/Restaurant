@@ -1,5 +1,4 @@
 <?php
-
 include_once "bd.inc.php";
 
 function getRestoByIdR($idR) {
