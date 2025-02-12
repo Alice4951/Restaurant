@@ -30,7 +30,7 @@ function getUtilisateurByMailU($mailU) {
         $req = $cnx->prepare("select * from utilisateur where mailU=:mailU");
         $req->bindValue(':mailU', $mailU, PDO::PARAM_STR);
         $req->execute();
-
+        
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
@@ -38,7 +38,6 @@ function getUtilisateurByMailU($mailU) {
     }
     return $resultat;
 }
-
 
 
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {

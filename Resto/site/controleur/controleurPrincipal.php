@@ -1,18 +1,22 @@
 <?php
 
-function controleurPrincipal($action) {
+function controleurPrincipal($action){
     $lesActions = array();
     $lesActions["defaut"] = "listeRestos.php";
     $lesActions["liste"] = "listeRestos.php";
+    $lesActions["detail"] = "detailResto.php";
     $lesActions["connexion"] = "connexion.php";
     $lesActions["deconnexion"] = "deconnexion.php";
-    $lesActions["recherche"] = "rechercheResto.php";
+    $lesActions["profil"] = "monProfil.php";
 
-    if (array_key_exists($action, $lesActions)) {
+    
+    if (array_key_exists ( $action , $lesActions )){
         return $lesActions[$action];
-    } else {
+    }
+    else{
         return $lesActions["defaut"];
     }
+
 }
 
 ?>

@@ -3,10 +3,14 @@
 
 <?php
 for ($i = 0; $i < count($listeRestos); $i++) {
+    $lesPhotos = getPhotosByIdR($listeRestos[$i]['idR']);
     ?>
 
     <div class="card">
         <div class="photoCard">
+            <?php if (count($lesPhotos) > 0) { ?>
+                <img src="photos/<?= $lesPhotos[0]["cheminP"] ?>" alt="photo du restaurant" />
+            <?php } ?>
 
 
         </div>

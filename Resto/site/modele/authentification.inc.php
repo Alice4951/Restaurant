@@ -56,24 +56,15 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // prog principal de test
     header('Content-Type:text/plain');
 
+
     // test de connexion
-    if (isLoggedOn()) {
-        echo "logged\n";
-    } else {
-        echo "not logged\n";
-    }
-    
     login("test@bts.sio", "sio");
-    
     if (isLoggedOn()) {
-        echo "logged\n";
+        echo "logged";
     } else {
-        echo "not logged\n";
+        echo "not logged";
     }
 
-    $mail=getMailULoggedOn();
-    echo "utilisateur connecté avec cette adresse : $mail \n";
-    
     // deconnexion
     logout();
 }
