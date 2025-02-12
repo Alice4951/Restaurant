@@ -6,6 +6,9 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 include_once "$racine/modele/bd.resto.inc.php";
 include_once "$racine/modele/bd.typecuisine.inc.php";
 include_once "$racine/modele/bd.photo.inc.php";
+include_once "$racine/modele/bd.critiquer.inc.php";
+include_once "$racine/modele/bd.aimer.inc.php";
+include_once "$racine/modele/authentification.inc.php";
 
 // creation du menu burger
 $menuBurger = array();
@@ -23,10 +26,14 @@ $unResto = getRestoByIdR($idR);
 
 $lesTypesCuisine = getTypesCuisineByIdR($idR);
 $lesPhotos = getPhotosByIdR($idR);
-
+$noteMoy = round(getNoteMoyenneByIdR($idR), 0);
+$mailU = getMailULoggedOn();
+$aimer = getAimerById($mailU, $idR);
+$critiques = getCritiquerByIdR($idR);
 
 // traitement si necessaire des donnees recuperees
 ;
+
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "detail d'un restaurant";

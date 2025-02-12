@@ -30,11 +30,9 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // prog principal de test
     header('Content-Type:text/plain');
 
+
     echo "\n getPhotosByIdR(1) : \n";
     print_r(getPhotosByIdR(1));
-
-    echo "\n getPhotosByIdR(4) : \n";
-    print_r(getPhotosByIdR(4));
 
 }
 ?>

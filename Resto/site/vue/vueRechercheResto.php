@@ -19,7 +19,7 @@
             <input type="text" name="voieAdrR" placeholder="rue" value="<?= $voieAdrR ?>"/><br />
             <?php
             break;
-        
+
     }
     ?>
     <br /><br />

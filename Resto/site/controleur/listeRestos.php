@@ -5,7 +5,6 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/modele/bd.resto.inc.php";
 include_once "$racine/modele/bd.photo.inc.php";
 
-
 // recuperation des donnees GET, POST, et SESSION
 ;
 

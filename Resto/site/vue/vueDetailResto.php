@@ -1,8 +1,25 @@
 
 <h1><?= $unResto['nomR']; ?>
+
+    <?php if ($aimer != false) { ?>
+        <a href="./?action=aimer&idR=<?= $unResto['idR']; ?>" ><img class="aimer" src="images/aime.png" alt="j'aime ce restaurant"></a>
+    <?php } else { ?>
+        <a href="./?action=aimer&idR=<?= $unResto['idR']; ?>" ><img class="aimer" src="images/aimepas.png" alt="je n'aime pas encore ce restaurant"></a>
+    <?php } ?>
+
 </h1>
 
 <span id="note">
+    <?php for ($i = 1; $i <= 5; $i++) { ?>
+        <a class="aimer" href="./?action=noter&note=<?= $i ?>&idR=<?= $unResto['idR']; ?>" >
+            <?php if ($i <= $noteMoy) { ?>
+                <img class="note" src="images/like.png" alt="">
+            <?php } else {
+                ?>
+                <img class="note" src="images/neutre.png" alt="line neutre">
+            <?php } ?>
+        </a>
+    <?php } ?>
 </span>
 <section>
     Cuisine <br />
@@ -50,5 +67,27 @@
 <h2 id="crit">Critiques</h2>
 
 <ul id="critiques">
+    <?php for ($i = 0; $i < count($critiques); $i++) { ?>
+        <li>
+            <span>
+                <?= $critiques[$i]["mailU"] ?> 
+                <?php if ($critiques[$i]["mailU"] == $mailU) { ?>
+                    <a href='./?action=supprimerCritique&idR=<?= $unResto['idR']; ?>'>Supprimer</a>
+                <?php } ?>
+            </span>
+            <div>
+                <span>
+                    <?php
+                    if ($critiques[$i]["note"]) {
+                        echo $critiques[$i]["note"] . "/5";
+                    }
+                    ?>
+                </span>
+                <span><?= $critiques[$i]["commentaire"] ?> </span>
+            </div>
+
+        </li>
+    <?php } ?>
+
 </ul>
 

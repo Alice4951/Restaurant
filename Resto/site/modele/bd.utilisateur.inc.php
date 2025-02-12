@@ -39,7 +39,6 @@ function getUtilisateurByMailU($mailU) {
     return $resultat;
 }
 
-
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // prog principal de test
     header('Content-Type:text/plain');
@@ -49,6 +48,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 
     echo "getUtilisateurByMailU('mathieu.capliez@gmail.com') : \n";
     print_r(getUtilisateurByMailU("mathieu.capliez@gmail.com"));
+
 
 }
 ?>

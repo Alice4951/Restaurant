@@ -1,14 +1,14 @@
 <?php
+
 include_once "bd.inc.php";
 
 function getRestoByIdR($idR) {
+
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare("select * from resto where idR=:idR");
         $req->bindValue(':idR', $idR, PDO::PARAM_INT);
-
         $req->execute();
-
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
@@ -36,6 +36,8 @@ function getRestos() {
     }
     return $resultat;
 }
+
+
 
 function getRestosByNomR($nomR) {
     $resultat = array();
@@ -82,6 +84,7 @@ function getRestosByAdresse($voieAdrR, $cpR, $villeR) {
     return $resultat;
 }
 
+
 function getRestosAimesByMailU($mailU) {
     $resultat = array();
 
@@ -103,7 +106,6 @@ function getRestosAimesByMailU($mailU) {
     return $resultat;
 }
 
-
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // prog principal de test
     header('Content-Type:text/plain');
@@ -111,13 +113,18 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     echo "getRestos() : \n";
     print_r(getRestos());
 
-    echo "getRestoByIdR(idR) : \n";
+    echo "getRestoByIdR(1) : \n";
     print_r(getRestoByIdR(1));
 
-    echo "getRestosByNomR(nomR) : \n";
+    echo "getRestosByNomR('charcut') : \n";
     print_r(getRestosByNomR("charcut"));
 
     echo "getRestosByAdresse(voieAdrR, cpR, villeR) : \n";
     print_r(getRestosByAdresse("Ravel", "33000", "Bordeaux"));
+    
+    echo "getRestosAimesByMailU(mailU) : \n";
+    print_r(getRestosAimesByMailU("test@bts.sio"));
+    
+    
 }
 ?>

@@ -23,7 +23,9 @@ if (isLoggedOn()){
     $mesRestosAimes = getRestosAimesByMailU($mailU);
     
     $mesTypeCuisineAimes = getTypesCuisinePreferesByMailU($mailU);
-    
+    // traitement si necessaire des donnees recuperees
+
+
     // appel du script de vue qui permet de gerer l'affichage des donnees
     $titre = "Mon profil";
     include "$racine/vue/entete.html.php";

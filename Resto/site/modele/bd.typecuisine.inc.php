@@ -101,7 +101,6 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     
     echo "getTypesCuisineByIdR(idR) : \n";
     print_r(getTypesCuisineByIdR(4));
-    
 }
 ?>
 
