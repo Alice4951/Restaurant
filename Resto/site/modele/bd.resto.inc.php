@@ -8,7 +8,9 @@ function getRestoByIdR($idR) {
         $cnx = connexionPDO();
         $req = $cnx->prepare("select * from resto where idR=:idR");
         $req->bindValue(':idR', $idR, PDO::PARAM_INT);
+
         $req->execute();
+
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
@@ -16,6 +18,7 @@ function getRestoByIdR($idR) {
     }
     return $resultat;
 }
+
 
 function getRestos() {
     $resultat = array();
@@ -85,6 +88,7 @@ function getRestosByAdresse($voieAdrR, $cpR, $villeR) {
 }
 
 
+
 function getRestosAimesByMailU($mailU) {
     $resultat = array();
 
@@ -124,7 +128,5 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     
     echo "getRestosAimesByMailU(mailU) : \n";
     print_r(getRestosAimesByMailU("test@bts.sio"));
-    
-    
 }
 ?>

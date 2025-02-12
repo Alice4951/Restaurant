@@ -54,8 +54,10 @@ switch($critere){
     case 'adresse':
         // recherche par adresse
         $listeRestos = getRestosByAdresse($voieAdrR, $cpR, $villeR);
-        break;    
+        break;
+    
 }
+
 
 // traitement si necessaire des donnees recuperees
 ;

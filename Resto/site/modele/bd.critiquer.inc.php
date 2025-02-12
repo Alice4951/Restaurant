@@ -25,11 +25,12 @@ function getCritiquerByIdR($idR) {
 }
 
 function getNoteMoyenneByIdR($idR) {
+
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare("select avg(note) from critiquer where idR=:idR");
         $req->bindValue(':idR', $idR, PDO::PARAM_INT);
-
+        
         $req->execute();
 
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
@@ -37,23 +38,23 @@ function getNoteMoyenneByIdR($idR) {
         print "Erreur !: " . $e->getMessage();
         die();
     }
-    if ($resultat["avg(note)"] != NULL) {
+    if ($req->rowCount()>0){
         return $resultat["avg(note)"];
-    } else {
+    }
+    else{
         return 0;
     }
 }
 
-
-
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // prog principal de test
     header('Content-Type:text/plain');
- 
-    echo "\n getNoteMoyenneByIdR(1) \n";
-    print_r(getNoteMoyenneByIdR(1));
 
     echo "\n getCritiquerByIdR(1) : \n";
     print_r(getCritiquerByIdR(1));
+
+    echo "\n getNoteMoyenneByIdR(1) : \n";
+    print_r(getNoteMoyenneByIdR(1));
+   
 }
 ?>
