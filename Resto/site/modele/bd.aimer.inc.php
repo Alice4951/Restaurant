@@ -76,16 +76,25 @@ function addAimer($mailU, $idR) {
 }
 
 function delAimer($mailU, $idR) {
-    // à completer
-    
-    
-}
+    $resultat = -1;
+    try {
+        $cnx = connexionPDO();
 
+        $req = $cnx->prepare("delete from aimer where idR=:idR and mailU=:mailU");
+        $req->bindValue(':idR', $idR, PDO::PARAM_INT);
+        $req->bindValue(':mailU', $mailU, PDO::PARAM_STR);
+        
+        $resultat = $req->execute();
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
 
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // prog principal de test
     header('Content-Type:text/plain');
-
 
     echo "\n getAimerByMailU(\"mathieu.capliez@gmail.com\") : \n";
     print_r(getAimerByMailU("mathieu.capliez@gmail.com"));
@@ -98,6 +107,9 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     
     echo "\n addAimer(\"mathieu.capliez@gmail.com\",7) : \n";
     print_r(addAimer("mathieu.capliez@gmail.com", 7));
+
+    echo "\n delAimer(\"mathieu.capliez@gmail.com\",2) : \n";
+    print_r(delAimer("mathieu.capliez@gmail.com", 2));
 
 }
 ?>
